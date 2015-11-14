@@ -44,9 +44,8 @@ def places(request):
         num_places = int(request.GET['num_places'].encode())
     except ValueError:
         raise Http404()
-    return render(request, 'places.html')
-    
-    #return render(request, 'places.html', {"num_places" : num_places})
+    #return render(request, 'places.html')
+    return render(request, 'places.html', {"num_places" : "1" * num_places})
 
 def choices(request):
     return render(request, 'choices.html')
