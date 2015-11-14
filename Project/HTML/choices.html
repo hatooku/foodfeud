@@ -61,7 +61,15 @@
     
     {% endfor %}
     <br><br /><br />
+
+
+    {% if person_num < max_person_num %}
     <input style="background-color:gray;color:white" type="submit" value="Next"  class="btn btn-lg btn-default">
+
+    {% else %}
+    <input style="background-color:gray;color:white" type="submit" value="Finish"  class="btn btn-lg btn-default">
+    {% endif %}
+    
     </form>
 
 
