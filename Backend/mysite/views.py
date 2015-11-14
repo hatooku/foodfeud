@@ -2,6 +2,7 @@ from django.http import Http404, HttpResponse
 from django.shortcuts import render
 import datetime
 
+'''
 def hello(request):
     return HttpResponse("Hello world")
 
@@ -31,3 +32,32 @@ def search(request):
     else:
         message = 'You submitted an empty form.'
     return HttpResponse(message)
+'''
+
+
+def votes(request):  
+    people = raw_input("Num_ppl: ")
+    html = "<html><body> Y'all had %s  <p></body></html>" % (people)
+    choices = raw_input("How many places you finna hit up? ")
+    html += "<html><body> Y'all had %s choices <p></body></html>"%(choices)
+    try:
+        people = int(people)  
+        choices = int(choices)
+    except ValueError:
+            raise Http404()    
+    score = [0][0] * choices
+    for i in range(people):
+        for j in range(choices):
+            rank = raw_input("Person %s : How do you rank choice %s (1-10): " % (i + 1,j + 1))
+            try:
+                rank = int(rank)
+            except ValueError:
+                raise Http404() 
+            score[i][j] += rank
+    for j in range(choices):
+        tally = 0
+        for i in range(people):
+            tally += score[i][j]
+            
+        html += "<html><body> <p> The score for choice %s was %s.</body></html>" % (j + 1, score[i][i])   
+    return HttpResponse(html)
