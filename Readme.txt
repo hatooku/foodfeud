@@ -1,1 +1,1 @@
-Authors: Catherine Ma, Celia Zhang, Joseph Donermeyer, Joonhee Lee
+Authors: Catherine Ma, Celia Zhang, Joseph Donermeyer, Joon Hee Lee
