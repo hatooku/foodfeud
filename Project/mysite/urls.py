@@ -8,6 +8,9 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^votes/$', votes),
     url(r'^places/$', places),
+    url(r'^main/$', main_page),
+    url(r'^choices/$', choices),
+    url(r'^result/$', result),
 )
 
 '''

@@ -76,3 +76,12 @@ def votes(request):
 
 def places(request):
     return render(request, 'places.html')
+
+def main_page(request):
+    return render(request, 'main.html')
+
+def choices(request):
+    return render(request, 'choices.html')
+
+def result(request):
+    return render(request, 'result.html')
