@@ -38,17 +38,19 @@ def main_page(request):
     return render(request, 'main.html')
 
 def places(request):
-    
     try:
         num_people = int(request.GET['num_people'].encode())
         num_places = int(request.GET['num_places'].encode())
     except ValueError:
         raise Http404()
     #return render(request, 'places.html')
+    request.session['num_people'] = num_people
+    request.session['num_places'] = num_places
     return render(request, 'places.html', {"num_places" : "1" * num_places})
 
 def choices(request):
-    return render(request, 'choices.html')
+    return HttpResponse("Welcome to the page at %d, %d" % (request.session['num_people'], request.session['num_places']))
+    #return render(request, 'choices.html')
 
 def result(request):
     return render(request, 'result.html')
