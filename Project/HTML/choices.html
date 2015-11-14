@@ -29,10 +29,15 @@
 </head>
 
 <body background="../static/restaurant_background.jpeg">
-    <br /><br />
-    <div class="inner cover">
-            <br /><br /><br/>
-                <br/><br/>
+<div class="site-wrapper">
+        
+        <div class="cover-container">
+
+          <div class="inner cover">
+                <br/>
+                <br/>
+            <h1 class="cover-heading">FoodFeud</h1>
+                <br/>
                 <br/>
             <p class="lead">Person {{person_num}}: Please rank the restaurants (1                               being the restaurant you want to eat at                               the most).
             </p>
@@ -55,7 +60,7 @@
                         <input type="text" name="rank_{{ forloop.counter }}"><br/><br/>
     
     {% endfor %}
-    <br /><br />
+    <br><br /><br />
     <input style="background-color:gray;color:white" type="submit" value="Next"  class="btn btn-lg btn-default">
     </form>
 
