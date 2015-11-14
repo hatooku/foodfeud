@@ -38,14 +38,18 @@ def search(request):
 def votes(request):  
     people = raw_input("Num_ppl: ")
     html = "<html><body> Y'all had %s  <p></body></html>" % (people)
-    choices = raw_input("How many places you finna hit up? ")
+    choices = raw_input("Num_restaurants: ")
     html += "<html><body> Y'all had %s choices <p></body></html>"%(choices)
     try:
         people = int(people)  
         choices = int(choices)
     except ValueError:
             raise Http404()    
-    score = [0][0] * choices
+        
+    score = [[0 for col in range(choices)] for row in range(people)]
+    tally = [0] * choices
+    winner = 0
+    
     for i in range(people):
         for j in range(choices):
             rank = raw_input("Person %s : How do you rank choice %s (1-10): " % (i + 1,j + 1))
@@ -54,10 +58,15 @@ def votes(request):
             except ValueError:
                 raise Http404() 
             score[i][j] += rank
-    for j in range(choices):
-        tally = 0
-        for i in range(people):
-            tally += score[i][j]
             
-        html += "<html><body> <p> The score for choice %s was %s.</body></html>" % (j + 1, score[i][i])   
+    for j in range(choices):
+        score_sum = 0
+        for i in range(people):
+            score_sum += score[i][j]
+        tally[j] = score_sum
+        if (tally[j] >= tally[winner]): winner = j
+        
+        
+            
+    html += "<html><body><p>Winner: Restaurant %d.</body></html>" % (winner + 1)   
     return HttpResponse(html)
