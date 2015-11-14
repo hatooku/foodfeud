@@ -1,6 +1,7 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 import datetime
+import random
 
 '''
 def hello(request):
@@ -80,7 +81,7 @@ def result(request):
     num_people = request.session['num_people']
     num_places = request.session['num_places']  
     score = request.session['score']
-    winner = 0
+    winner_arr = [0]
     tally = [0 for x in range(num_places)]
     
     for j in range(num_places):
@@ -94,46 +95,13 @@ def result(request):
         for i in range(num_people):
             score_sum += score[i][j]
         tally[j] = score_sum
-        if (tally[j] <= tally[winner]): winner = j    
-
-    return render(request, 'result.html', {"winner" : request.session['place_names'][winner]})
-
-def votes(request):  
-    people = raw_input("Num_ppl: ")
-    html = "<html><body> Y'all had %s  <p></body></html>" % (people)
-    choices = raw_input("Num_restaurants: ")
-    html += "<html><body> Y'all had %s choices <p></body></html>"%(choices)
-    try:
-        people = int(people)
-        choices = int(choices)
-    except ValueError:
-            raise Http404()    
-        
-    score = [[0 for col in range(choices)] for row in range(people)]
-    tally = [0] * choices
-    names = [""] * choices
+        if (tally[j] < tally[winner_arr[0]]):
+            winner_arr = []
+            winner_arr.append(j)
+        if (tally[j] == tally[winner_arr[0]]):
+            winner_arr.append(j)
     
-    for i in range(choices):
-        names[i] = raw_input("Name of restaurant %s: " % (i + 1))
-    winner = 0
+    r = random.randint(1, len(winner_arr))
     
-    for i in range(people):
-        for j in range(choices):
-            rank = raw_input("Person %s : How do you rank %s (1-10): " % (i + 1,names[j]))
-            try:
-                rank = int(rank)
-            except ValueError:
-                raise Http404() 
-            score[i][j] += rank
-            
-    for j in range(choices):
-        score_sum = 0
-        for i in range(people):
-            score_sum += score[i][j]
-        tally[j] = score_sum
-        if (tally[j] >= tally[winner]): winner = j
-        
-        
-            
-    html += "<html><body><p>Winner: %s.</body></html>" % (names[winner])   
-    return HttpResponse(html)
+
+    return render(request, 'result.html', {"winner" : request.session['place_names'][winner_arr[r-1]]})
