@@ -38,7 +38,7 @@ def votes(request):
         choices = int(choices)
     except ValueError:
             raise Http404()    
-    score = [0] * choices
+    score = [0][0] * choices
     for i in range(people):
         for j in range(choices):
             rank = raw_input("Person %s : How do you rank choice %s (1-10): " % (i + 1,j + 1))
@@ -46,7 +46,11 @@ def votes(request):
                 rank = int(rank)
             except ValueError:
                 raise Http404() 
-            score[j] += rank
-    for i in range(choices):        
-        html += "<html><body> <p> The score for choice %s was %s.</body></html>" % (i + 1, score[i])   
+            score[i][j] += rank
+    for j in range(choices):
+        tally = 0
+        for j in range(people):
+            tally += score[i][j]
+            
+        html += "<html><body> <p> The score for choice %s was %s.</body></html>" % (j + 1, score[i][i])   
     return HttpResponse(html)
