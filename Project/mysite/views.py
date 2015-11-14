@@ -47,8 +47,16 @@ def places(request):
     request.session['num_places'] = num_places
     return render(request, 'places.html', {"num_places" : "1" * num_places})
 
-def choices(request):
-    #return HttpResponse("Welcome to the page at %d, %d" % (request.session['num_people'], request.session['num_places']))
+def choices(request, person):
+    try:
+        person_num = int(person)
+    except ValueError:
+        raise Http404() 
+    if (person_num == 1):
+        request.session['place_names'] = []
+        num_places = request.session['num_places']
+        for (i in range(num_places)):
+            request.session['place_names'].append(request.GET['person%d', i+1])
     return render(request, 'choices.html', {"num_places" : "1" * request.session['num_places']})
 
 def result(request):
