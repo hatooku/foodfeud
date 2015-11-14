@@ -34,14 +34,13 @@ def search(request):
     return HttpResponse(message)
 '''
 
-
 def votes(request):  
     people = raw_input("Num_ppl: ")
     html = "<html><body> Y'all had %s  <p></body></html>" % (people)
     choices = raw_input("Num_restaurants: ")
     html += "<html><body> Y'all had %s choices <p></body></html>"%(choices)
     try:
-        people = int(people)  
+        people = int(people)
         choices = int(choices)
     except ValueError:
             raise Http404()    
@@ -74,3 +73,6 @@ def votes(request):
             
     html += "<html><body><p>Winner: %s.</body></html>" % (names[winner])   
     return HttpResponse(html)
+
+def places(request):
+    return render(request, 'places.html')
