@@ -31,24 +31,43 @@
 <body background="../static/restaurant_background.jpeg">
     <br />
     <div class="inner cover">
-        <h1 class="cover-heading">FoodVote</h1>
+        <h1 class="cover-heading">FoodFeud</h1>
             <br />
-            <p class="lead">When you eat out with your friends, do you always spend way too much time trying to decide on the restaurant? FoodVote will tell you which restaurant you should eat at based on you and your friends' preferences. Stop wasting time arguing with friends and start spending more time eating delicious food with them!</p>
+            <p class="lead">When you eat out with your friends, do you always spend way too much time trying to decide on the restaurant? FoodFeud will tell you which restaurant you should eat at based on you and your friends' preferences. Stop wasting time arguing with friends and start spending more time eating delicious food with them!</p>
     </div>
     
     <br />
 
     <form action="/places/" method="get"> <font size="4">How many people are in your group (including you)?</font><br>
            <br \>
-           <input class="lead" type="text" name="num_people"><br>
-           <br /><br />
+               <select class="lead" type="text" name="num_people">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+        </select><br>
            <font size="4">How many restaurants is your group considering?<font size="4"><br>
            <br />
-           <input class="lead" type="text" name="num_places"> <br/>              <br/><br/>
+                          <select class="lead" type="text" name="num_places">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+        </select><br>             <br/><br/>
            <input style="background-color:gray;color:white" type="submit" value="Submit" class="btn btn-lg btn-default">
     </form>
-
-    <br /><br />
     
     <!-- Bootstrap core JavaScript
     ================================================== -->

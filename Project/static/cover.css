@@ -169,3 +169,10 @@ input[type="text"] {
     border-radius: 10px;
     text-align: center;
 }
+
+select {
+    height: 50px;
+    width: 150px;
+    color: black;
+    border-radius: 10px;
+}
