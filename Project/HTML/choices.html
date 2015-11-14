@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>FoodVote</title>
+    <title>FoodFeud</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/bootstrap.min.css" rel="stylesheet">
@@ -50,13 +50,13 @@
 
     {% for place in place_names %}
     
-    {{ place }}:
+        <font size="4">{{ place }}</font>:
                         &nbsp;&nbsp;&nbsp;
                         <input type="text" name="rank_{{ forloop.counter }}"><br/><br/>
     
     {% endfor %}
-    <br/><br/>
-    <input type="submit" value="Next"  class="btn btn-lg btn-default">
+    <br /><br />
+    <input style="background-color:gray;color:white" type="submit" value="Next"  class="btn btn-lg btn-default">
     </form>
 
 

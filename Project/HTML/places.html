@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>FoodVote</title>
+    <title>FoodFeud</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
           <div id="restaurant{{i}}" class="inner cover">
                 <br/>
                 <br/>
-            <h1 class="cover-heading">FoodVote</h1>
+            <h1 class="cover-heading">FoodFeud</h1>
                 <br/>
                 <br/>
             <p class="lead">Which restaurants are you considering?</p>
@@ -51,16 +51,16 @@
                 <div id={{ forloop.counter }}>
                 <br/><br/>
 
-                  Restaurant {{ forloop.counter }} &nbsp; &nbsp; &nbsp;
+                    <font size="4">Restaurant {{ forloop.counter }}</font> &nbsp; &nbsp; &nbsp;
                   <input type="text" name="place{{ forloop.counter }}">
                 <br/><br/>
                 </div>
                 
             {% endfor %}
             </ul>
-              
+              <br/><br/>
             
-           <input type="submit" value="Submit" class="btn btn-lg btn-default">
+           <input style="background-color:gray;color:white" type="submit" value="Submit" class="btn btn-lg btn-default">
             </form>
               
           </div>
