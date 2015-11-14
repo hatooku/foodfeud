@@ -49,7 +49,7 @@ def votes(request):
             score[i][j] += rank
     for j in range(choices):
         tally = 0
-        for j in range(people):
+        for i in range(people):
             tally += score[i][j]
             
         html += "<html><body> <p> The score for choice %s was %s.</body></html>" % (j + 1, score[i][i])   
