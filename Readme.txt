@@ -1,1 +1,1 @@
-5C_hackathon
+Authors: Catherine Ma, Celia Zhang, Joseph Donermeyer, Joonhee Lee
