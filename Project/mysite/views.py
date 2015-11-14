@@ -34,6 +34,18 @@ def search(request):
     return HttpResponse(message)
 '''
 
+def places(request):
+    return render(request, 'places.html')
+
+def main_page(request):
+    return render(request, 'main.html')
+
+def choices(request):
+    return render(request, 'choices.html')
+
+def result(request):
+    return render(request, 'result.html')
+
 def votes(request):  
     people = raw_input("Num_ppl: ")
     html = "<html><body> Y'all had %s  <p></body></html>" % (people)
@@ -73,15 +85,3 @@ def votes(request):
             
     html += "<html><body><p>Winner: %s.</body></html>" % (names[winner])   
     return HttpResponse(html)
-
-def places(request):
-    return render(request, 'places.html')
-
-def main_page(request):
-    return render(request, 'main.html')
-
-def choices(request):
-    return render(request, 'choices.html')
-
-def result(request):
-    return render(request, 'result.html')
