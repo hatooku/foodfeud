@@ -34,20 +34,32 @@
             <br /><br /><br/>
                 <br/><br/>
                 <br/>
-            <p class="lead">Person 1: Please rank the restaurants (1                               being the restaurant you want to eat at                               the most).
+            <p class="lead">Person {{person_num}}: Please rank the restaurants (1                               being the restaurant you want to eat at                               the most).
             </p>
     </div>
     
     <br /><br />
+    {% if person_num < max_person_num %}
+    <form action="/choices/" method="get">
+
+    {% else %}
+    <form action="/result/" method="get">
+    {% endif %}
+
+
+
+    {% for place in place_names %}
     
-    {% for i in num_places %}
-    
-    <form class="lead"> Restaurant {{forloop.counter}}:
+    {{ place }}:
                         &nbsp;&nbsp;&nbsp;
-                        <input type="text" name="place_one_rank">
-    </form>
+                        <input type="text" name="rank_{{ forloop.counter }}"><br/><br/>
     
     {% endfor %}
+    <br/><br/>
+    <input type="submit" value="Next"  class="btn btn-lg btn-default">
+    </form>
+
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
