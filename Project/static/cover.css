@@ -167,4 +167,5 @@ input[type="text"] {
     width: 150px;
     color: black;
     border-radius: 10px;
+    text-align: center;
 }
