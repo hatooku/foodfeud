@@ -49,7 +49,7 @@ def places(request):
 
 def choices(request):
     #return HttpResponse("Welcome to the page at %d, %d" % (request.session['num_people'], request.session['num_places']))
-    return render(request, 'choices.html')
+    return render(request, 'choices.html', {"num_places" : "1" * request.session['num_places']})
 
 def result(request):
     return render(request, 'result.html')
