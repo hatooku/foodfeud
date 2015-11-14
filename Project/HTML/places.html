@@ -31,10 +31,8 @@
   <body>
 
     <div class="site-wrapper">
-
-
+        
         <div class="cover-container">
-
 
           <div id="restaurant{{i}}" class="inner cover">
                 <br/>
@@ -46,17 +44,15 @@
                 <br/>
                 <br/>
              
-              
+            <form action="/choices/" method="get"> 
             <ul>
             {% for i in "xxxx" %}
                 
                 <div id={{ forloop.counter }}>
                 <br/><br/>
-                <form ID="tb2" class="lead">
 
                   Restaurant {{ forloop.counter }} &nbsp; &nbsp; &nbsp;
-                  <input type="text" name="place">
-                </form>
+                  <input type="text" name={{ forloop.counter }}>
                 <br/><br/>
                 </div>
                 
@@ -64,7 +60,6 @@
             </ul>
               
             
-             <form action="/choices/" method="get"> 
            <input type="submit" value="Submit" class="btn btn-lg btn-default">
             </form>
               
