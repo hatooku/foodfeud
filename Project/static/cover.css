@@ -162,8 +162,9 @@ body {
   }
 }
 
-input [type="text"] {
-    width: 50px;
+input[type="text"] {
     height: 50px;
+    width: 150px;
     color: black;
+    border-radius: 10px;
 }
