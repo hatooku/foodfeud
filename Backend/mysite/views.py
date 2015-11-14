@@ -48,11 +48,15 @@ def votes(request):
         
     score = [[0 for col in range(choices)] for row in range(people)]
     tally = [0] * choices
+    names = [""] * choices
+    
+    for i in range(choices):
+        names[i] = raw_input("Name of restaurant %s: " % (i + 1))
     winner = 0
     
     for i in range(people):
         for j in range(choices):
-            rank = raw_input("Person %s : How do you rank choice %s (1-10): " % (i + 1,j + 1))
+            rank = raw_input("Person %s : How do you rank %s (1-10): " % (i + 1,names[j]))
             try:
                 rank = int(rank)
             except ValueError:
@@ -68,5 +72,5 @@ def votes(request):
         
         
             
-    html += "<html><body><p>Winner: Restaurant %d.</body></html>" % (winner + 1)   
+    html += "<html><body><p>Winner: %s.</body></html>" % (names[winner])   
     return HttpResponse(html)
