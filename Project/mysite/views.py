@@ -35,6 +35,8 @@ def search(request):
 '''
 
 def main_page(request):
+    for key in request.session.keys():
+        del request.session[key]
     return render(request, 'main.html')
 
 def places(request):
