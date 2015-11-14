@@ -45,10 +45,13 @@
             <p class="lead">Which restaurants are you considering?</p>
                 <br/>
                 <br/>
+             
               
+            <form action="/choices/" method="get"> 
             <ul>
             {% for i in "xxxx" %}
                 
+                <div id={{ forloop.counter }}>
                 <br/><br/>
                 <form ID="tb2" class="lead">
 
@@ -56,14 +59,15 @@
                   <input type="text" name="place">
                 </form>
                 <br/><br/>
+                </div>
                 
             {% endfor %}
             </ul>
               
             
-            <p class="lead">
-              <a href="http://getbootstrap.com/examples/cover/#" class="btn btn-lg btn-default">Submit</a>
-            </p>
+              
+           <input type="submit" value="Submit" class="btn btn-lg btn-default">
+            </form>
               
           </div>
 
