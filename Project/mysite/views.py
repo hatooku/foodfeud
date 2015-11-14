@@ -34,11 +34,19 @@ def search(request):
     return HttpResponse(message)
 '''
 
-def places(request):
-    return render(request, 'places.html')
-
 def main_page(request):
     return render(request, 'main.html')
+
+def places(request):
+    
+    try:
+        num_people = int(request.GET['num_people'].encode())
+        num_places = int(request.GET['num_places'].encode())
+    except ValueError:
+        raise Http404()
+    return HttpResponse("%d, %d" % (num_people, num_places))
+    
+    #return render(request, 'places.html')
 
 def choices(request):
     return render(request, 'choices.html')
