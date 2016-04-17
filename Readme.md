@@ -10,7 +10,7 @@ Live Website: https://foodfeud.herokuapp.com/
 Description
 -----------
 
-FoodFeud was a project we completed over 12 hours at the 5C Hackathon at Pomona College. 5C was the first hackathon for all members of our team. During the project, all members of the team used HTML, CSS, and Django for the first time. Althought most of the 12 hours were spent on learning basics such as setting up GitHub, learning how to use query strings, this was definitely a great educational experience for all of us and will definitely guide us during future hackathons and projects.
+FoodFeud was a project we completed over 12 hours at the 5C Hackathon at Pomona College. 5C was the first hackathon for all members of our team. During the project, all members of the team used HTML, CSS, and Django for the first time. Althought most of the 12 hours were spent on learning basics such as setting up GitHub and learning how to use query strings, this was definitely a great educational experience for all of us and will definitely guide us during future hackathons and projects.
 
 Roles
 -----
